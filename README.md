@@ -1,12 +1,10 @@
-# USGC Data Visualization with Leaflet
+# USGC Global Earthquake Data Visualization with Leaflet
 
-## Background
-
-![1-Logo](Images/1-Logo.png)
+## Overview
 
 The United States Geological Survey (USGS) is responsible for providing scientific data about natural hazards, the health of our ecosystems and environment; and the impacts of climate and land-use change. Their scientists develop new methods and tools to supply timely, relevant, and useful information about the Earth and its processes. 
 
-These tools collect a massive amount of data from all over the world each day, but they lack a meaningful way of displaying it. I visualized their earthquake data using Leaflet allowing them to better educate the public and other government organizations on issues facing our planet.
+These tools collect a massive amount of data from all over the world each day, but they lacked a meaningful way of displaying it. I visualized their earthquake data using Leaflet allowing them to better educate the public and other government organizations on issues facing our planet.
 
 ### 1: Visualize Earthquake Data Set
 
@@ -16,11 +14,8 @@ These tools collect a massive amount of data from all over the world each day, b
 
 a) **Data set**
 
-   ![3-Data](Images/3-Data.png)
+   Utilized current earthquake data provided by the USGS, which is updated every 5 minutes and includes all earthquake data for the Past 7 Days. Live API data was obtained from [USGS GeoJSON Feed](http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php) page as a JSON representation. The URL of this JSON was used to pull in the data for the visualization.
 
-   Utilized current earthquake data updated every 5 minutes by the USGS. Data was obtained from [USGS GeoJSON Feed](http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php) page as a JSON representation. The URL of this JSON was used to pull in the data for the visualization.
-
-   ![4-JSON](Images/4-JSON.png)
 
 b) **Import & Visualize the Data**
 
@@ -51,7 +46,13 @@ b) **Layer Controls**
 
 - - -
 
+### Technology Used:
+   * Leaflet
+   * HTML/CSS/Javascript
+   * Mapbox API
+   * GeoJSON
 
+- - -
 ### Copyright
 
 Trilogy Education Services © 2019. All Rights Reserved.
