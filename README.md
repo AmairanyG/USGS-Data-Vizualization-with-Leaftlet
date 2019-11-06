@@ -6,10 +6,13 @@ The United States Geological Survey (USGS) is responsible for providing scientif
 
 These tools collect a massive amount of data from all over the world each day, but they lacked a meaningful way of displaying it. I visualized their earthquake data using Leaflet allowing them to better educate the public and other government organizations on issues facing our planet.
 
-### 1: Visualize Earthquake Data Set
+### Web application maybe deployed by clicking the following link: 
+[USGC Earthquake Data Visualization](https://amairanyg.github.io/USGS-Data-Vizualization-with-Leaftlet/)
+
+
+### 1) Visualize Earthquake Data Set
 
 ![2-BasicMap](Images/2-BasicMap.png)
-
 
 
 a) **Data set**
@@ -29,7 +32,7 @@ b) **Import & Visualize the Data**
 
 - - -
 
-### 2: Additonal Data
+### 2) Additonal Data
 
 ![5-Advanced](Images/5-Advanced.png)
 
