@@ -1,25 +1,26 @@
 // Selectable backgrounds of the map - tile layers:
 // Grayscale background
-var graymap= L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg?access_token={accessToken}", {
-    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-    maxZoom: 18,
-    id: "mapbox.light",
+var graymap= L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
+// var graymap= L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg?access_token={accessToken}", {
+//     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+//     maxZoom: 18,
+//     id: "mapbox.light",
     accessToken: API_KEY  
   });
 
 // Satellite background
-var darkmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-    maxZoom: 18,
-    id: "mapbox.dark",
+var satellitemap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}",{
+    // attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+    // maxZoom: 18,
+    // id: "mapbox.satellite",
     accessToken: API_KEY
   });
 
 // Outdoors background
 var outdoorsmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/outdoors-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
-    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-    maxZoom: 18,
-    id: "mapbox.outdoors",
+    // attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+    // maxZoom: 18,
+    // id: "mapbox.outdoors",
     accessToken: API_KEY
   });
 
@@ -27,7 +28,7 @@ var outdoorsmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/outdoors-
 var map = L.map("map", {
   center: [37.09, -95.71],
   zoom: 5,
-  layers: [graymap, darkmap, outdoorsmap]
+  layers: [graymap, satellitemap, outdoorsmap]
 });
 
 // Layers for earthquakes and tectonicplates datasets
@@ -36,7 +37,7 @@ var earthquakes = new L.LayerGroup();
 
 // Base layers
 var baseMaps = {
-  "Darkscale": darkmap,
+  "Satellite": satellitemap,
   "Grayscale": graymap,
   "Outdoors": outdoorsmap
 };
@@ -103,8 +104,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geo
     onEachFeature: function(feature, layer) {
       layer.bindPopup(feature.properties.type + "<br>Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
     }
-  })
-  .addTo(earthquakes);
+  }).addTo(earthquakes);
 
   earthquakes.addTo(map);
 
@@ -119,7 +119,14 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geo
       .create("div", "info legend");
 
     var grades = [0, 1, 2, 3, 4, 5];
-    var colors = ["#98ee00", "#d4ee00", "#eecc00", "#ee9c00", "#ea822c", "#ea2c2c"];
+    var colors = [
+      "#98ee00", 
+      "#d4ee00", 
+      "#eecc00", 
+      "#ee9c00", 
+      "#ea822c", 
+      "#ea2c2c"
+    ];
 
     for (var i = 0; i < grades.length; i++) {
       div.innerHTML += "<i style='background: " + colors[i] + "'></i> " +
@@ -138,8 +145,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geo
       L.geoJson(platedata, {
         color: "orange",
         weight: 2
-      })
-      .addTo(tectonicplates);
+      }).addTo(tectonicplates);
 
       // Add the tectonicplates layer to the map
       tectonicplates.addTo(map);
