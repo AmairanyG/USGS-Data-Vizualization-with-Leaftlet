@@ -6,9 +6,14 @@ The United States Geological Survey (USGS) is responsible for providing scientif
 
 These tools collect a massive amount of data from all over the world each day, but they lacked a meaningful way of displaying it. I visualized their earthquake data using Leaflet allowing them to better educate the public and other government organizations on issues facing our planet.
 
-### Web application maybe deployed by clicking the following link: 
-[USGC Earthquake Data Visualization](https://amairanyg.github.io/USGS-Data-Vizualization-with-Leaftlet/)
+## Technology Used:
 
+| Technology   		| Description    							|
+| :---         		|     :---:      							|
+|  Github      		| HTML, CSS, Javascript, Github pages 							|
+|  API's       		| Mapbox API, GeoJSON 							|
+|  Leaflet    	| Map Library    		|
+|  Website    	| [USGC Earthquake Data Visualization](https://amairanyg.github.io/USGS-Data-Vizualization-with-Leaftlet/)   		|
 
 ![5-Advanced](Images/5-Advanced.png)
 
@@ -36,15 +41,3 @@ These tools collect a massive amount of data from all over the world each day, b
    * Added layer controls to the map.
   
 
-- - -
-
-### Technology Used:
-   * Leaflet
-   * HTML/CSS/Javascript
-   * Mapbox API
-   * GeoJSON
-
-- - -
-### Copyright
-
-Trilogy Education Services © 2019. All Rights Reserved.
